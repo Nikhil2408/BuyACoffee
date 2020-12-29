@@ -12,7 +12,8 @@
         android:text="Quantity"
         android:textAllCaps="true"
         android:paddingLeft="16dp"
-        android:layout_marginBottom="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
         android:textSize="20sp" />
 
     <TextView
@@ -24,11 +25,32 @@
         android:paddingLeft="16dp"
         android:textSize="16sp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:textAllCaps="true"
+        android:paddingLeft="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/price_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0"
+        android:textColor="@android:color/black"
+        android:paddingLeft="16dp"
+        android:textSize="16sp" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="ORDER" />
+        android:text="ORDER"
+        android:onClick="submitOrder"/>
 
 
 </LinearLayout>
