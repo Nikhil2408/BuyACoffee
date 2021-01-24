@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity
      */
     public void submitOrder(View view)
     {
-        //int numberOfCoffeesOrdered=2;
-        //display(numberOfCoffeesOrdered);
         displayPrice(numberOfCoffeesOrdered*5);
     }
 
@@ -42,9 +40,12 @@ public class MainActivity extends AppCompatActivity
     /**
      * This method displays the given price on the screen.
      */
-    private void displayPrice(int number) {
+    private void displayPrice(int number)
+    {
+        String orderPlacedMsgPre="Total is ";
+        String orderPlacedMsgPost="Thank You for ordering!!";
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+        priceTextView.setText(orderPlacedMsgPre+NumberFormat.getCurrencyInstance().format(number)+". "+orderPlacedMsgPost);
     }
 
     public void doIncrement(View view)
@@ -55,7 +56,10 @@ public class MainActivity extends AppCompatActivity
 
     public void doDecrement(View view)
     {
-        numberOfCoffeesOrdered=numberOfCoffeesOrdered-1;
-        display(numberOfCoffeesOrdered);
+        if(numberOfCoffeesOrdered>0)
+        {
+            numberOfCoffeesOrdered=numberOfCoffeesOrdered-1;
+            display(numberOfCoffeesOrdered);
+        }
     }
 }
