@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity
      */
     public void submitOrder(View view)
     {
-        displayPrice(numberOfCoffeesOrdered*5);
+        displayOrderSummary();
     }
 
     /**
@@ -42,16 +42,21 @@ public class MainActivity extends AppCompatActivity
      */
     private void displayPrice(int number)
     {
-        String orderPlacedMsgPre="Total is ";
-        String orderPlacedMsgPost="Thank You for ordering!!";
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(orderPlacedMsgPre+NumberFormat.getCurrencyInstance().format(number)+". "+orderPlacedMsgPost);
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+
+    private void displayOrderSummary()
+    {
+        TextView orderSummary=(TextView)findViewById(R.id.order_summary_text_view);
+        orderSummary.setText("Order successful\n"+ "Here is the order summary\n"+"Name: Nikhil Bansal\n"+"Quantity: "+numberOfCoffeesOrdered+"\n"+"Charges: "+NumberFormat.getCurrencyInstance().format(numberOfCoffeesOrdered*5));
     }
 
     public void doIncrement(View view)
     {
         numberOfCoffeesOrdered=numberOfCoffeesOrdered+1;
         display(numberOfCoffeesOrdered);
+        displayPrice(numberOfCoffeesOrdered*5);
     }
 
     public void doDecrement(View view)
@@ -60,6 +65,7 @@ public class MainActivity extends AppCompatActivity
         {
             numberOfCoffeesOrdered=numberOfCoffeesOrdered-1;
             display(numberOfCoffeesOrdered);
+            displayPrice(numberOfCoffeesOrdered*5);
         }
     }
 }

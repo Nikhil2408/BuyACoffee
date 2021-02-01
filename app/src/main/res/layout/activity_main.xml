@@ -4,30 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:background="@drawable/coffee">
+    tools:context=".MainActivity">
+    <!--android:background="@drawable/coffee"-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="We are here to help you order your coffee!!"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:paddingLeft="16dp"
         android:textSize="34sp"
         android:paddingTop="10dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quantity"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textAllCaps="true"
         android:paddingLeft="16dp"
         android:paddingBottom="16dp"
         android:paddingTop="16dp"
+        android:paddingRight="16dp"
         android:textSize="21sp" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -42,9 +44,9 @@
             android:id="@+id/quantity_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="0"
-            android:paddingLeft="16dp"
+            android:layout_marginLeft="16dp"
             android:textSize="18sp" />
 
         <Button
@@ -60,9 +62,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Price"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textAllCaps="true"
         android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:paddingBottom="16dp"
         android:paddingTop="16dp"
         android:textSize="21sp" />
@@ -72,8 +75,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$0"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:textSize="18sp" />
 
     <Button
@@ -83,5 +87,14 @@
         android:layout_marginTop="16dp"
         android:text="ORDER"
         android:onClick="submitOrder"/>
+
+    <TextView
+        android:id="@+id/order_summary_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingLeft="16dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
 
 </LinearLayout>
