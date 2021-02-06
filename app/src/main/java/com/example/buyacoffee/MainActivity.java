@@ -2,8 +2,9 @@ package com.example.buyacoffee;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -153,8 +154,14 @@ public class MainActivity extends AppCompatActivity
         orderSummaryMessage+="\nQuantity: "+numberOfCoffeesOrdered;
         orderSummaryMessage+="\nCharges: "+NumberFormat.getCurrencyInstance().format(numberOfCoffeesOrdered*5+toppingPrice);
 
-        TextView orderSummary=(TextView)findViewById(R.id.order_summary_text_view);
-        orderSummary.setText(orderSummaryMessage);
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));  //only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Order Summary for the Coffees Ordered by "+customer_name);
+        intent.putExtra(Intent.EXTRA_TEXT, orderSummaryMessage);
+        if(intent.resolveActivity(getPackageManager())!=null)
+        {
+            startActivity(intent);
+        }
     }
 
     /**
