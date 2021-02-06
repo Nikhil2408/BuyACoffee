@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -74,10 +75,10 @@ public class MainActivity extends AppCompatActivity
 
     public void doDecrement(View view)
     {
-        if(numberOfCoffeesOrdered>0)
+        if(numberOfCoffeesOrdered==0)
         {
-            numberOfCoffeesOrdered=numberOfCoffeesOrdered-1;
-            display(numberOfCoffeesOrdered);
+            Toast.makeText(this, "Number of coffees cannot be less than 0",Toast.LENGTH_SHORT).show();
+            return;
 //            if(hasWhippedCream)
 //            {
 //                View whippedCreamView=findViewById(R.id.whipped_cream_cb);
@@ -98,9 +99,10 @@ public class MainActivity extends AppCompatActivity
 //                View chocolateSyrupView=findViewById(R.id.chocolate_syrup_cb);
 //                chocolateSyrupCB(chocolateSyrupView);
 //            }
-            displayPrice(numberOfCoffeesOrdered*5, toppingPrice);
-
         }
+        numberOfCoffeesOrdered=numberOfCoffeesOrdered-1;
+        display(numberOfCoffeesOrdered);
+        displayPrice(numberOfCoffeesOrdered*5, toppingPrice);
     }
 
     public void whippedCreamCB(View view)
